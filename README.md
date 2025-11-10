@@ -175,6 +175,52 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 </details>
 
 <details>
+<summary><strong>OpenCode</strong></summary>
+
+Generate a ready-to-use MCP configuration snippet for OpenCode:
+
+```bash
+npx @zilliz/claude-context-mcp@latest --print-opencode-config
+```
+
+- Add `--with-env-values` to inline your current environment variables.
+- Add `--opencode-provider-id=<name>` to customise the tool name.
+- Add `--opencode-no-tools` if you prefer to manage tool permissions separately.
+
+Copy the output into your OpenCode config (e.g. `~/.config/opencode/opencode.json`):
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "claude-context": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@zilliz/claude-context-mcp@latest"
+      ],
+      "timeout": 20000,
+      "enabled": true,
+      "environment": {
+        "MILVUS_TOKEN": "{env:MILVUS_TOKEN}",
+        "MILVUS_ADDRESS": "{env:MILVUS_ADDRESS}",
+        "EMBEDDING_PROVIDER": "{env:EMBEDDING_PROVIDER}",
+        "EMBEDDING_MODEL": "{env:EMBEDDING_MODEL}"
+      }
+    }
+  },
+  "tools": {
+    "claude-context*": true
+  }
+}
+```
+
+Ensure the referenced environment variables are exported (for example in your shell profile) before launching `opencode`.
+
+</details>
+
+<details>
 <summary><strong>Void</strong></summary>
 
 Go to: `Settings` -> `MCP` -> `Add MCP Server`

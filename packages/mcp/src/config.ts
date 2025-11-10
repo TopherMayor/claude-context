@@ -179,6 +179,10 @@ Usage: npx @zilliz/claude-context-mcp@latest [options]
 
 Options:
   --help, -h                          Show this help message
+    --print-opencode-config             Print an OpenCode config snippet to stdout and exit
+        --with-env-values               (Optional) When used with --print-opencode-config, inline current env values
+        --opencode-provider-id=<name>   (Optional) Override the MCP name used in the generated snippet
+        --opencode-no-tools             (Optional) Skip adding a tools section to the generated snippet
 
 Environment Variables:
   MCP_SERVER_NAME         Server name

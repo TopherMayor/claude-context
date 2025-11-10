@@ -30,6 +30,7 @@ import { createEmbeddingInstance, logEmbeddingProviderInfo } from "./embedding.j
 import { SnapshotManager } from "./snapshot.js";
 import { SyncManager } from "./sync.js";
 import { ToolHandlers } from "./handlers.js";
+import { renderOpenCodeConfig } from "./opencode-config.js";
 
 class ContextMcpServer {
     private server: Server;
@@ -271,6 +272,23 @@ async function main() {
     // Show help if requested
     if (args.includes('--help') || args.includes('-h')) {
         showHelpMessage();
+        process.exit(0);
+    }
+
+    if (args.includes('--print-opencode-config')) {
+        const includeEnvValues = args.includes('--with-env-values');
+        const providerOption = args.find(arg => arg.startsWith('--opencode-provider-id='));
+        const toolsOptionDisabled = args.includes('--opencode-no-tools');
+
+        const providerId = providerOption?.split('=').slice(1).join('=') || undefined;
+
+        const configString = renderOpenCodeConfig({
+            includeEnvValues,
+            providerId,
+            includeToolsSection: !toolsOptionDisabled
+        });
+
+        process.stdout.write(`${configString}\n`);
         process.exit(0);
     }
 
