@@ -175,6 +175,95 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
 </details>
 
 <details>
+<summary><strong>OpenCode AI</strong></summary>
+
+OpenCode AI supports MCP servers through its configuration file. To integrate Claude Context:
+
+1. Open your OpenCode AI configuration file (typically located at `~/.opencode/config.json` or in your project's `.opencode/config.json`).
+
+2. Add the following configuration to the `mcpServers` section:
+
+**OpenAI Configuration (Default):**
+
+```json
+{
+  "mcpServers": {
+    "claude-context": {
+      "command": "npx",
+      "args": ["-y", "@zilliz/claude-context-mcp@latest"],
+      "env": {
+        "EMBEDDING_PROVIDER": "OpenAI",
+        "OPENAI_API_KEY": "your-openai-api-key",
+        "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
+      }
+    }
+  }
+}
+```
+
+**VoyageAI Configuration:**
+
+```json
+{
+  "mcpServers": {
+    "claude-context": {
+      "command": "npx",
+      "args": ["-y", "@zilliz/claude-context-mcp@latest"],
+      "env": {
+        "EMBEDDING_PROVIDER": "VoyageAI",
+        "VOYAGEAI_API_KEY": "your-voyageai-api-key",
+        "EMBEDDING_MODEL": "voyage-code-3",
+        "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
+      }
+    }
+  }
+}
+```
+
+**Gemini Configuration:**
+
+```json
+{
+  "mcpServers": {
+    "claude-context": {
+      "command": "npx",
+      "args": ["-y", "@zilliz/claude-context-mcp@latest"],
+      "env": {
+        "EMBEDDING_PROVIDER": "Gemini",
+        "GEMINI_API_KEY": "your-gemini-api-key",
+        "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
+      }
+    }
+  }
+}
+```
+
+**Ollama Configuration:**
+
+```json
+{
+  "mcpServers": {
+    "claude-context": {
+      "command": "npx",
+      "args": ["-y", "@zilliz/claude-context-mcp@latest"],
+      "env": {
+        "EMBEDDING_PROVIDER": "Ollama",
+        "EMBEDDING_MODEL": "nomic-embed-text",
+        "OLLAMA_HOST": "http://127.0.0.1:11434",
+        "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
+      }
+    }
+  }
+}
+```
+
+3. Save the file and restart OpenCode AI to apply the changes.
+
+For more information, see the [OpenCode AI MCP documentation](https://opencode.ai/docs/mcp-servers/).
+
+</details>
+
+<details>
 <summary><strong>Void</strong></summary>
 
 Go to: `Settings` -> `MCP` -> `Add MCP Server`
