@@ -108,6 +108,7 @@ results.forEach(result => {
 - **VoyageAI Embeddings** - High-quality embeddings optimized for code (`voyage-code-3`, `voyage-3.5`, etc.)
 - **Gemini Embeddings** - Google's embedding models (`gemini-embedding-001`)
 - **Ollama Embeddings** - Local embedding models via Ollama
+- **OpenCode AI Embeddings** - Specialized AI-powered code embeddings (`opencode-embed-v1`, `opencode-embed-large`, etc.)
 
 ## Vector Database Support
 

@@ -149,6 +149,34 @@ OLLAMA_HOST=http://127.0.0.1:11434
 
 </details>
 
+<details>
+<summary><strong>5. OpenCode AI Configuration</strong></summary>
+
+OpenCode AI provides specialized AI-powered code embeddings for semantic code search.
+
+```bash
+# Required: Your OpenCode AI API key
+OPENCODE_API_KEY=your-opencode-api-key
+
+# Optional: Specify embedding model (default: opencode-embed-v1)
+EMBEDDING_MODEL=opencode-embed-v1
+
+# Optional: Custom API base URL (for custom endpoints)
+OPENCODE_BASE_URL=https://api.opencode.ai/v1
+```
+
+**Available Models:**
+See `getSupportedModels` in [`opencode-embedding.ts`](https://github.com/zilliztech/claude-context/blob/master/packages/core/src/embedding/opencode-embedding.ts) for the full list of supported models.
+
+**Getting API Key:**
+
+1. Visit [OpenCode AI Documentation](https://opencode.ai/docs)
+2. Sign up for an account
+3. Navigate to API Keys section
+4. Create a new API key
+
+</details>
+
 #### Get a free vector database on Zilliz Cloud
 
 Claude Context needs a vector database. You can [sign up](https://cloud.zilliz.com/signup?utm_source=github&utm_medium=referral&utm_campaign=2507-codecontext-readme) on Zilliz Cloud to get an API key.
@@ -347,6 +375,25 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
         "EMBEDDING_PROVIDER": "Ollama",
         "EMBEDDING_MODEL": "nomic-embed-text",
         "OLLAMA_HOST": "http://127.0.0.1:11434",
+        "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
+      }
+    }
+  }
+}
+```
+
+**OpenCode AI Configuration:**
+
+```json
+{
+  "mcpServers": {
+    "claude-context": {
+      "command": "npx",
+      "args": ["-y", "@zilliz/claude-context-mcp@latest"],
+      "env": {
+        "EMBEDDING_PROVIDER": "OpenCode",
+        "OPENCODE_API_KEY": "your-opencode-api-key",
+        "EMBEDDING_MODEL": "opencode-embed-v1",
         "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
       }
     }
