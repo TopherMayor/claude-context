@@ -181,21 +181,24 @@ OpenCode AI supports MCP servers through its configuration file. To integrate Cl
 
 1. Open your OpenCode AI configuration file (typically located at `~/.opencode/config.json` or in your project's `.opencode/config.json`).
 
-2. Add the following configuration to the `mcpServers` section:
+2. Add the following configuration:
 
 **OpenAI Configuration (Default):**
 
 ```json
 {
-  "mcpServers": {
-    "claude-context": {
-      "command": "npx",
-      "args": ["-y", "@zilliz/claude-context-mcp@latest"],
-      "env": {
-        "EMBEDDING_PROVIDER": "OpenAI",
-        "OPENAI_API_KEY": "your-openai-api-key",
-        "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
-      }
+  "$schema": "https://opencode.ai/config.json",
+  "claude-context": {
+    "type": "local",
+    "command": [
+      "npx",
+      "-y",
+      "@zilliz/claude-context-mcp@latest"
+    ],
+    "environment": {
+      "EMBEDDING_PROVIDER": "OpenAI",
+      "OPENAI_API_KEY": "your-openai-api-key",
+      "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
     }
   }
 }
@@ -205,16 +208,19 @@ OpenCode AI supports MCP servers through its configuration file. To integrate Cl
 
 ```json
 {
-  "mcpServers": {
-    "claude-context": {
-      "command": "npx",
-      "args": ["-y", "@zilliz/claude-context-mcp@latest"],
-      "env": {
-        "EMBEDDING_PROVIDER": "VoyageAI",
-        "VOYAGEAI_API_KEY": "your-voyageai-api-key",
-        "EMBEDDING_MODEL": "voyage-code-3",
-        "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
-      }
+  "$schema": "https://opencode.ai/config.json",
+  "claude-context": {
+    "type": "local",
+    "command": [
+      "npx",
+      "-y",
+      "@zilliz/claude-context-mcp@latest"
+    ],
+    "environment": {
+      "EMBEDDING_PROVIDER": "VoyageAI",
+      "VOYAGEAI_API_KEY": "your-voyageai-api-key",
+      "EMBEDDING_MODEL": "voyage-code-3",
+      "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
     }
   }
 }
@@ -224,15 +230,18 @@ OpenCode AI supports MCP servers through its configuration file. To integrate Cl
 
 ```json
 {
-  "mcpServers": {
-    "claude-context": {
-      "command": "npx",
-      "args": ["-y", "@zilliz/claude-context-mcp@latest"],
-      "env": {
-        "EMBEDDING_PROVIDER": "Gemini",
-        "GEMINI_API_KEY": "your-gemini-api-key",
-        "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
-      }
+  "$schema": "https://opencode.ai/config.json",
+  "claude-context": {
+    "type": "local",
+    "command": [
+      "npx",
+      "-y",
+      "@zilliz/claude-context-mcp@latest"
+    ],
+    "environment": {
+      "EMBEDDING_PROVIDER": "Gemini",
+      "GEMINI_API_KEY": "your-gemini-api-key",
+      "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
     }
   }
 }
@@ -242,16 +251,19 @@ OpenCode AI supports MCP servers through its configuration file. To integrate Cl
 
 ```json
 {
-  "mcpServers": {
-    "claude-context": {
-      "command": "npx",
-      "args": ["-y", "@zilliz/claude-context-mcp@latest"],
-      "env": {
-        "EMBEDDING_PROVIDER": "Ollama",
-        "EMBEDDING_MODEL": "nomic-embed-text",
-        "OLLAMA_HOST": "http://127.0.0.1:11434",
-        "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
-      }
+  "$schema": "https://opencode.ai/config.json",
+  "claude-context": {
+    "type": "local",
+    "command": [
+      "npx",
+      "-y",
+      "@zilliz/claude-context-mcp@latest"
+    ],
+    "environment": {
+      "EMBEDDING_PROVIDER": "Ollama",
+      "EMBEDDING_MODEL": "nomic-embed-text",
+      "OLLAMA_HOST": "http://127.0.0.1:11434",
+      "MILVUS_TOKEN": "your-zilliz-cloud-api-key"
     }
   }
 }
